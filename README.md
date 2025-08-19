@@ -55,7 +55,7 @@ lib/
 1. **Clone the repository**
    ```bash
    git clone https://github.com/yurnero14/GearPizza_Revo
-   cd gearpizza
+   cd GearPizza_revo
    ```
 
 2. **Install dependencies**
