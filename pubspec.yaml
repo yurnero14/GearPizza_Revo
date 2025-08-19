@@ -1,0 +1,51 @@
+name: gearpizza
+description: A Flutter pizza ordering app, GearPizza, for Revo's hiring assignment
+
+publish_to: "none"
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  #State Management
+  provider: ^6.1.1
+
+  #http client
+  dio: ^5.3.2
+
+  #serializing Json
+  json_annotation: ^4.8.1
+
+  #image handler
+  image_picker: ^1.0.4
+
+  http: ^1.1.0
+
+  #for address autocomplete feature
+  google_places_flutter: ^2.0.7
+
+  #storage
+  shared_preferences: ^2.2.2
+
+  #UI comps
+  cupertino_icons: ^1.0.6
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+  #code generation
+  build_runner: ^2.4.7
+  json_serializable: ^6.7.1
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/images/
+    - assets/images/pizzas/
