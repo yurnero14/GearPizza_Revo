@@ -4,14 +4,14 @@ import 'order_status.dart';
 
 part 'order.g.dart';
 
-// Move OrderPizza to the TOP of the file, BEFORE Order class
+
 @JsonSerializable()
 class OrderPizza {
   final int pizzaId;
   final int quantity;
   final double unitPrice;
   final double totalPrice;
-  // Remove Pizza? pizza for now - causing import conflicts
+ 
 
   OrderPizza({
     required this.pizzaId,
