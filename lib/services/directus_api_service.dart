@@ -1,4 +1,3 @@
-// lib/services/directus_api_service.dart - COMPLETE VERSION
 import 'dart:convert';
 import 'dart:io';
 import 'package:http/http.dart' as http;
@@ -295,7 +294,7 @@ class DirectusApiService {
     }
   }
 
-  // CLEAR TOKEN - FIXED
+  // CLEAR TOKEN 
   void clearToken() {
     _accessToken = null;
     print('🗑️ Token cleared');
