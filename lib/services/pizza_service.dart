@@ -3,7 +3,7 @@ import '../models/pizza.dart';
 import '../models/allergen.dart';
 
 class PizzaService {
-  /// Get pizzas by restaurant - PURE MOCK DATA (no Directus calls)
+  /// Get pizzas by restaurant (mock data)
   Future<List<Pizza>> getPizzasByRestaurant(
     int restaurantId, {
     List<Allergen>? excludedAllergens,
@@ -27,7 +27,7 @@ class PizzaService {
         code: 'TOMATO',
         description: 'Contains tomatoes');
 
-    // ALL 5 PIZZAS exactly as they appear in Directus screenshots
+    // ALL 5 PIZZAS exactly as they appear in Directus 
     List<Pizza> allPizzas = [
       Pizza(
         id: 79,
