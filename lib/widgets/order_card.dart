@@ -1,4 +1,3 @@
-// lib/widgets/order_card.dart - FIXED VERSION with Pizza Names
 import 'package:flutter/material.dart';
 import '../models/order.dart';
 import '../models/order_status.dart';
@@ -175,7 +174,7 @@ class OrderCard extends StatelessWidget {
                 ),
           ),
           const SizedBox(height: 8),
-          // FIXED: Now shows actual pizza names
+         
           ...order.pizzas.map((orderPizza) {
             return Padding(
               padding: const EdgeInsets.symmetric(vertical: 2),
@@ -461,7 +460,7 @@ class _OrderDetailsModal extends StatelessWidget {
                                 ),
                           ),
                           const SizedBox(height: 12),
-                          // FIXED: Show pizza names in modal too
+                          
                           ...order.pizzas.map((p) => Text(
                               '${p.quantity}x ${_getPizzaName(p.pizzaId)} - ${p.formattedTotalPrice}')),
                           const SizedBox(height: 12),
