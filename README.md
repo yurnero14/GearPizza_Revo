@@ -118,7 +118,7 @@ lib/
 
 ## Developer
 
-Created by Muhammad Sarib Khan for Revo's Flutter Developer position.
+Created by Muhammad Sarib Khan for Revo's Software Engineer's position.
 
 ---
 
