@@ -6,7 +6,7 @@ import 'providers/pizza_provider.dart';
 import 'providers/allergen_provider.dart';
 import 'providers/cart_provider.dart';
 import 'providers/auth_provider.dart';
-import 'widgets/directus_test_widget.dart'; // Fixed: removed '../'
+import 'widgets/directus_test_widget.dart'; 
 
 void main() {
   runApp(const GearPizzaApp());
