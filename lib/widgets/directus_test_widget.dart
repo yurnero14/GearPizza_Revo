@@ -67,25 +67,25 @@ class _DirectusTestWidgetState extends State<DirectusTestWidget> {
 
     try {
       // Step 1: Login first
-      _addResult('🔐 STEP 1: Login');
+      _addResult('STEP 1: Login');
       final authResponse = await _directusApi.login(
           ApiConstants.ownerEmail, ApiConstants.ownerPassword);
       _token = authResponse.accessToken;
-      _addResult('✅ Login successful\n');
+      _addResult('Login successful\n');
 
       // Step 2: Test Restaurants API
-      _addResult('🏪 STEP 2: Testing Restaurants API');
+      _addResult('STEP 2: Testing Restaurants API');
       await _testRestaurantsAPI();
 
       // Step 3: Test Allergens API
-      _addResult('\n🥜 STEP 3: Testing Allergens API');
+      _addResult('\n STEP 3: Testing Allergens API');
       await _testAllergensAPI();
 
       // Step 4: Test Pizzas API
-      _addResult('\n🍕 STEP 4: Testing Pizzas API');
+      _addResult('\n STEP 4: Testing Pizzas API');
       await _testPizzasAPI();
     } catch (e) {
-      _addResult('❌ ERROR: $e');
+      _addResult('ERROR: $e');
     }
 
     setState(() {
@@ -97,20 +97,20 @@ class _DirectusTestWidgetState extends State<DirectusTestWidget> {
     final url = Uri.parse(
         'https://gearpizza.revod.services/items/restaurants?fields=*');
 
-    _addResult('📞 Calling: $url');
+    _addResult('Calling: $url');
 
     final response = await http.get(url, headers: {
       'Authorization': 'Bearer $_token',
       'Content-Type': 'application/json',
     });
 
-    _addResult('📥 Status: ${response.statusCode}');
-    _addResult('📥 Response: ${response.body}');
+    _addResult('Status: ${response.statusCode}');
+    _addResult('Response: ${response.body}');
 
     if (response.statusCode == 200) {
       final data = json.decode(response.body);
       final restaurants = data['data'] ?? [];
-      _addResult('✅ Found ${restaurants.length} restaurants');
+      _addResult('Found ${restaurants.length} restaurants');
       for (var restaurant in restaurants) {
         _addResult('   - ID: ${restaurant['id']}, Name: ${restaurant['name']}');
       }
@@ -121,20 +121,20 @@ class _DirectusTestWidgetState extends State<DirectusTestWidget> {
     final url =
         Uri.parse('https://gearpizza.revod.services/items/allergens?fields=*');
 
-    _addResult('📞 Calling: $url');
+    _addResult('Calling: $url');
 
     final response = await http.get(url, headers: {
       'Authorization': 'Bearer $_token',
       'Content-Type': 'application/json',
     });
 
-    _addResult('📥 Status: ${response.statusCode}');
-    _addResult('📥 Response: ${response.body}');
+    _addResult('Status: ${response.statusCode}');
+    _addResult('Response: ${response.body}');
 
     if (response.statusCode == 200) {
       final data = json.decode(response.body);
       final allergens = data['data'] ?? [];
-      _addResult('✅ Found ${allergens.length} allergens');
+      _addResult('Found ${allergens.length} allergens');
       for (var allergen in allergens) {
         _addResult('   - ID: ${allergen['id']}, Name: ${allergen['name']}');
       }
@@ -143,7 +143,7 @@ class _DirectusTestWidgetState extends State<DirectusTestWidget> {
 
   Future<void> _testPizzasAPI() async {
     // Test all pizzas first
-    _addResult('🔍 Testing ALL pizzas (no filter)');
+    _addResult('Testing ALL pizzas (no filter)');
     final allPizzasUrl =
         Uri.parse('https://gearpizza.revod.services/items/pizzas?fields=*.*');
 
@@ -152,13 +152,13 @@ class _DirectusTestWidgetState extends State<DirectusTestWidget> {
       'Content-Type': 'application/json',
     });
 
-    _addResult('📥 All pizzas status: ${allResponse.statusCode}');
-    _addResult('📥 Response: ${allResponse.body}');
+    _addResult('All pizzas status: ${allResponse.statusCode}');
+    _addResult('Response: ${allResponse.body}');
 
     if (allResponse.statusCode == 200) {
       final allData = json.decode(allResponse.body);
       final allPizzas = allData['data'] ?? [];
-      _addResult('✅ Total pizzas in system: ${allPizzas.length}');
+      _addResult('Total pizzas in system: ${allPizzas.length}');
 
       for (var pizza in allPizzas) {
         _addResult(
