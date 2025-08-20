@@ -169,7 +169,7 @@ class _GooglePlacesAutoCompleteState extends State<GooglePlacesAutoComplete> {
   }
 }
 
-// Keep your existing _CustomValidationDisplay class as is
+
 class _CustomValidationDisplay extends StatefulWidget {
   final TextEditingController controller;
   final String? Function(String?) validator;
