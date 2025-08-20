@@ -1,12 +1,12 @@
 import '../models/allergen.dart';
 
 class AllergenService {
-  /// Get all available allergens - Updated with Directus data
+  /// Get all available allergens with Directus data
   Future<List<Allergen>> getAllergens() async {
     // Simulate network delay
     await Future.delayed(const Duration(milliseconds: 300));
 
-    // Using the exact allergens from Directus screenshots
+    // Using the exact allergens from Directus 
     return [
       Allergen(
           id: 1,
