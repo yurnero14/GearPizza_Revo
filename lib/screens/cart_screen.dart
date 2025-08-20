@@ -84,7 +84,7 @@ class CartScreen extends StatelessWidget {
         padding: const EdgeInsets.all(16),
         child: Row(
           children: [
-            // Pizza image (SAME AS PIZZA CARD!)
+            // Pizza image 
             Container(
               width: 60,
               height: 60,
@@ -101,7 +101,7 @@ class CartScreen extends StatelessWidget {
             ),
             const SizedBox(width: 16),
 
-            // Pizza details (COPIED STRUCTURE!)
+            // Pizza details 
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -131,7 +131,7 @@ class CartScreen extends StatelessWidget {
               ),
             ),
 
-            // Quantity controls (COPIED FROM PIZZA CARD!)
+            // Quantity controls 
             Column(
               children: [
                 Row(
