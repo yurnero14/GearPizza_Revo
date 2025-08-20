@@ -13,7 +13,7 @@ class ApiConstants {
   static const String orders = '/items/orders';
   static const String files = '/files';
 
-  // Assignment credentials (for future use)
+  // Assignment credentials
   static const String ownerEmail = 'sarib@gearpizza.it';
   static const String ownerPassword = 'i3|h;A03=B&\\';
 
@@ -21,7 +21,7 @@ class ApiConstants {
   static const int maxFileSize = 5 * 1024 * 1024; // 5MB
   static const List<String> allowedImageTypes = ['jpg', 'jpeg', 'png'];
 
-  // Order status values (exact from assignment)
+  // Order status values 
   static const String statusPending = 'pending';
   static const String statusPreparing = 'preparing';
   static const String statusShipped = 'shipped';
