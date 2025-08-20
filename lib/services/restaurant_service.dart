@@ -1,7 +1,7 @@
 import '../models/restaurant.dart';
 
 class RestaurantService {
-  /// Get all restaurants - PURE MOCK DATA (no Directus calls)
+  /// Get all restaurants mock data
   Future<List<Restaurant>> getRestaurants() async {
     // Simulate network delay
     await Future.delayed(const Duration(milliseconds: 800));
