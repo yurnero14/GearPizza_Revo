@@ -6,6 +6,7 @@ import '../models/restaurant.dart';
 import 'pizza_list_screen.dart';
 import 'cart_screen.dart';
 import '../screens/login_screen.dart';
+import '../screens/customer_order_tracking_screen.dart';
 
 class RestaurantListScreen extends StatefulWidget {
   const RestaurantListScreen({super.key});
@@ -33,6 +34,12 @@ class _RestaurantListScreenState extends State<RestaurantListScreen> {
           foregroundColor: Colors.white,
           centerTitle: true,
           actions: [
+            // ADD THIS: Track Order button
+            IconButton(
+              icon: const Icon(Icons.track_changes),
+              onPressed: () => _showTrackOrderDialog(context),
+              tooltip: 'Track Order',
+            ),
             IconButton(
               icon: const Icon(Icons.admin_panel_settings),
               onPressed: () => _navigateToLogin(context),
@@ -330,6 +337,87 @@ class _RestaurantListScreenState extends State<RestaurantListScreen> {
       context,
       MaterialPageRoute(
         builder: (context) => const LoginScreen(),
+      ),
+    );
+  }
+
+  void _showTrackOrderDialog(BuildContext context) {
+    final orderIdController = TextEditingController();
+    final emailController = TextEditingController();
+
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: const Text('Track Your Order'),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            TextField(
+              controller: orderIdController,
+              decoration: const InputDecoration(
+                labelText: 'Order ID',
+                hintText: 'e.g. 1, 2, 3...',
+                border: OutlineInputBorder(),
+              ),
+              keyboardType: TextInputType.number,
+            ),
+            const SizedBox(height: 16),
+            TextField(
+              controller: emailController,
+              decoration: const InputDecoration(
+                labelText: 'Email Address',
+                hintText: 'your@email.com',
+                border: OutlineInputBorder(),
+              ),
+              keyboardType: TextInputType.emailAddress,
+            ),
+            const SizedBox(height: 16),
+            Container(
+              padding: const EdgeInsets.all(12),
+              decoration: BoxDecoration(
+                color: Colors.blue.withValues(alpha: 0.1),
+                borderRadius: BorderRadius.circular(8),
+              ),
+              child: const Text(
+                'Demo: Try Order IDs 1-6 with any email',
+                style: TextStyle(fontSize: 12, color: Colors.blue),
+              ),
+            ),
+          ],
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(),
+            child: const Text('Cancel'),
+          ),
+          ElevatedButton(
+            onPressed: () {
+              final orderId = int.tryParse(orderIdController.text);
+              final email = emailController.text.trim();
+
+              if (orderId != null && email.isNotEmpty) {
+                Navigator.of(context).pop();
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => CustomerOrderTrackingScreen(
+                      orderId: orderId,
+                      customerEmail: email,
+                    ),
+                  ),
+                );
+              } else {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(
+                    content: Text('Please enter valid Order ID and Email'),
+                    backgroundColor: Colors.red,
+                  ),
+                );
+              }
+            },
+            child: const Text('Track Order'),
+          ),
+        ],
       ),
     );
   }
